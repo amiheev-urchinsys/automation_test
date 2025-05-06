@@ -14,6 +14,7 @@ class LoginPage:
         self.email_input = page.locator('#email')
         self.password_input = page.locator('#password')
         self.login_button = page.get_by_role("button", name="Log in")
+        self.page_title = page.locator('.MuiContainer-root h1')
 
     def login_with_user_credentials(self, user_email, user_password):
         """

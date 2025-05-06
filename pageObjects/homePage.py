@@ -11,5 +11,7 @@ class HomePage:
         self.page = page
         self.user_greeting_text = page.locator(".page-content .greeting").first
         self.main_greeting_text = page.locator('.content .greeting')
+        self.personal_cabinet_dropdown_menu = page.locator('.bottom-section .name')
+        self.log_out_menu_point = page.locator('.bottom-section div[aria-label="Log Out"]')
 
 

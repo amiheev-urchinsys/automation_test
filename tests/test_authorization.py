@@ -36,3 +36,18 @@ def verify_the_greetings_message(shared_data):
 def verify_the_greetings_message(shared_data):
     on_home_page = shared_data['home_page']
     expect(on_home_page.user_greeting_text).to_have_text("Welcome back, Alexandr!")
+
+@when('User clicks user menu dropdown')
+def open_personal_cabinet_menu(shared_data):
+    on_home_page = shared_data['home_page']
+    on_home_page.personal_cabinet_dropdown_menu.click()
+
+@when('User clicks the Log Out point')
+def select_log_out_point(shared_data):
+    on_home_page = shared_data['home_page']
+    on_home_page.log_out_menu_point.click()
+
+@then('Plextera the Login page is successfully opened')
+def login_page_is_displayed(shared_data):
+    on_login_page = shared_data['login_page']
+    expect(on_login_page.page_title).to_have_text("Welcome to Plextera")

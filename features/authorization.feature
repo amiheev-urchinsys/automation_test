@@ -10,12 +10,15 @@ Feature: Authorization
       | user_email            | user_password |
       | amiheev@urchinsys.com | 4h@TU3Wa      |
 
-  Scenario: Successful log out with user
+  Scenario Outline: Successful log out with user
     Given User is on the login page
     And User authorizes with <user_email> and <user_password>
     When User clicks user menu dropdown
     And User clicks the Log Out point
     Then Plextera the Login page is successfully opened
+    Examples:
+      | user_email            | user_password |
+      | amiheev@urchinsys.com | 4h@TU3Wa      |
 #
 #  Scenario: Error message is shown when an invalid email is used
 #    Given User is on the login page
