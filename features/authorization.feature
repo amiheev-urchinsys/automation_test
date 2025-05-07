@@ -19,34 +19,17 @@ Feature: Authorization
     Examples:
       | user_email            | user_password |
       | amiheev@urchinsys.com | 4h@TU3Wa      |
-#
-#  Scenario: Error message is shown when an invalid email is used
-#    Given User is on the login page
-#    When User enters an invalid value in Email address field
-#    And User enters valid value in Password field
-#    And User clicks the Log in button
-#    Then Error message is successfully shown
-#
-#  Scenario: Error message is shown when an invalid password is used
-#    Given User is on the login page
-#    When User enters valid value in Email address field
-#    And User enters an invalid value in Password field
-#    And User clicks the Log in button
-#    Then Error message is successfully shown
-#
-#  Scenario: Error message is shown when an invalid email and password is used
-#    Given User is on the login page
-#    When User enters an invalid value in Email address field
-#    And User enters an invalid value in Password field
-#    And User clicks the Log in button
-#    Then Error message is successfully shown
-#
-#  Scenario: Error message is shown when an invalid email and password is used
-#    Given User is on the login page
-#    When User enters an invalid value in Email address field
-#    And User enters an invalid value in Password field
-#    And User clicks the Log in button
-#    Then Error message is successfully shown
+
+  Scenario Outline: Error message is shown when an invalid credentials are used
+    Given User is on the login page
+    When User authorizes with <user_email> and <user_password>
+    Then Error message is successfully shown <error_text>
+    Examples:
+      | user_email            | user_password | error_text          |
+      | tt@tt.tt              | 4h@TU3Wa      | Invalid credentials |
+      | amiheev@urchinsys.com | 111111        | Invalid credentials |
+      | tt@tt.tt              | 111111        | Invalid credentials |
+
 #
 #  Scenario: Forgot password button transfers to the Forgot password page
 #    Given User is on the login page
