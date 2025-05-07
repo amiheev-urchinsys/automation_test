@@ -30,8 +30,7 @@ Feature: Authorization
       | amiheev@urchinsys.com | 111111        | Invalid credentials |
       | tt@tt.tt              | 111111        | Invalid credentials |
 
-#
-#  Scenario: Forgot password button transfers to the Forgot password page
-#    Given User is on the login page
-#    When User clicks the Forgot password button
-#    Then Plextera the Forgot password page is successfully opened
+  Scenario: Forgot password button transfers to the Forgot password page
+    Given User is on the login page
+    When User clicks the Forgot password button
+    Then Plextera the Forgot password page is successfully opened

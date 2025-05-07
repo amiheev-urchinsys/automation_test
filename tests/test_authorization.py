@@ -65,3 +65,14 @@ def login_page_is_displayed(shared_data):
 def check_the_error_text(error_text, shared_data):
     on_login_page = shared_data['login_page']
     expect(on_login_page.wrong_credentials_error).to_have_text(error_text)
+
+@when('User clicks the Forgot password button')
+def click_forgot_password(shared_data):
+    on_login_page = shared_data['login_page']
+    forgot_password_page = on_login_page.transfer_to_forgot_password_page()
+    shared_data['forgot_password_page'] = forgot_password_page
+
+@then('Plextera the Forgot password page is successfully opened')
+def success_forgot_page_open(shared_data):
+    on_forgot_password_page = shared_data['forgot_password_page']
+    expect(on_forgot_password_page.page_title).to_have_text("Forgot password")

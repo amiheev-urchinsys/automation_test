@@ -1,4 +1,6 @@
 from playwright.sync_api import Page
+
+from pageObjects.forgotPasswordPage import ForgotPasswordPage
 from pageObjects.homePage import HomePage
 
 
@@ -16,6 +18,7 @@ class LoginPage:
         self.login_button = page.get_by_role("button", name="Log in")
         self.page_title = page.locator('.MuiContainer-root h1')
         self.wrong_credentials_error = page.locator('.MuiAlert-message')
+        self.forgot_password_button = page.locator('div[class="login__forgot"]')
 
     def login_with_user_credentials(self, user_email, user_password):
         """
@@ -31,3 +34,9 @@ class LoginPage:
 
         home_page = HomePage(self.page)
         return home_page
+
+    def transfer_to_forgot_password_page(self):
+        self.forgot_password_button.click()
+
+        forgot_password_page = ForgotPasswordPage(self.page)
+        return forgot_password_page
