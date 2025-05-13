@@ -4,7 +4,8 @@ from pytest_bdd import given, when, then, parsers, scenarios
 
 from pageObjects.loginPage import LoginPage
 
-scenarios('../features/authorization.feature')
+scenarios('../features/login_page.feature')
+scenarios('../features/forgot_password_page.feature')
 
 
 @pytest.fixture

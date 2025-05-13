@@ -1,8 +1,5 @@
 from playwright.sync_api import Page
 
-from pageObjects.forgotPasswordPage import ForgotPasswordPage
-from pageObjects.homePage import HomePage
-
 
 class LoginPage:
 
@@ -28,6 +25,7 @@ class LoginPage:
         :param user_password: Password to input in the Password field in the login form
         :return: Instance of HomePage object, assuming login is successful
         """
+        from pageObjects.homePage import HomePage
         self.email_input.fill(user_email)
         self.password_input.fill(user_password)
         self.login_button.click()
@@ -36,6 +34,12 @@ class LoginPage:
         return home_page
 
     def transfer_to_forgot_password_page(self):
+        """
+        Performs a click to Forgot password text-link
+
+        :return: Instance of ForgotPassword object, assuming click is successful
+        """
+        from pageObjects.forgotPasswordPage import ForgotPasswordPage
         self.forgot_password_button.click()
 
         forgot_password_page = ForgotPasswordPage(self.page)
