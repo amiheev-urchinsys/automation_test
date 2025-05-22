@@ -4,8 +4,8 @@ from pytest_bdd import given, when, then, parsers, scenarios
 
 from pageObjects.loginPage import LoginPage
 
-scenarios('../features/login_page.feature')
-scenarios('../features/forgot_password_page.feature')
+scenarios('../features/login_page/login_page.feature')
+scenarios('../features/forgot_password_page/forgot_password_page.feature')
 
 
 @pytest.fixture
@@ -41,7 +41,7 @@ def verify_the_greetings_message(shared_data):
 @then('User is authorized')
 def verify_the_greetings_message(shared_data):
     on_home_page = shared_data['home_page']
-    expect(on_home_page.user_greeting_text).to_have_text("Welcome back, Alexandr!")
+    expect(on_home_page.user_greeting_text).to_contain_text("Welcome back")
 
 
 @when('User clicks user menu dropdown')

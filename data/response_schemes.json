@@ -1,0 +1,32 @@
+{
+  "schemes": [
+    {
+      "login": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string"
+          },
+          "accessExpireIn": {
+            "type": "integer"
+          },
+          "refreshExpireIn": {
+            "type": "integer"
+          },
+          "refreshToken": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "accessToken",
+          "accessExpireIn",
+          "refreshExpireIn",
+          "refreshToken"
+        ]
+      },
+      "create_hub_outline": {
+
+      }
+    }
+  ]
+}

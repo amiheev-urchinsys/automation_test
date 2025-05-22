@@ -1,0 +1,27 @@
+{
+  "hubs": [
+    {
+      "outline_based": {
+        "type": "SMART",
+        "name": "Hub 1",
+        "description": ""
+      },
+      "value_based_key_extractor": {
+        "type": "UNSTRUCTURED",
+        "name": "Hub 2",
+        "description": "",
+        "datasetDto": {
+          "sourceDatasetType": "BASED_ON_EXISTING"
+        }
+      },
+      "value_based_label_extractor": {
+        "type": "UNSTRUCTURED",
+        "name": "Hub 3",
+        "description": "",
+        "datasetDto": {
+          "sourceDatasetType": "NEW"
+        }
+      }
+    }
+  ]
+}
