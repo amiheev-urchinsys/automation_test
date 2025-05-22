@@ -25,7 +25,116 @@
         ]
       },
       "create_hub_outline": {
-
+        "title": "Hub",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ENABLED",
+              "DISABLED"
+            ]
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "sharingPolicy": {
+            "type": "string",
+            "enum": [
+              "PUBLIC",
+              "PRIVATE"
+            ]
+          },
+          "documentSplitPolicy": {
+            "type": "string",
+            "enum": [
+              "NO_SPLIT",
+              "SPLIT"
+            ]
+          },
+          "allowedUsers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "email",
+                "name"
+              ]
+            }
+          },
+          "owner": {
+            "type": "string",
+            "format": "email"
+          },
+          "description": {
+            "type": "string"
+          },
+          "recordsCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "fieldsCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "SMART",
+              "DUMB"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "items": {}
+          },
+          "allowRejectByLanguage": {
+            "type": "boolean"
+          },
+          "patternScriptAssist": {
+            "type": "boolean"
+          },
+          "default": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "status",
+          "locked",
+          "sharingPolicy",
+          "documentSplitPolicy",
+          "allowedUsers",
+          "owner",
+          "description",
+          "recordsCount",
+          "fieldsCount",
+          "type",
+          "fields",
+          "allowRejectByLanguage",
+          "patternScriptAssist",
+          "default"
+        ]
       }
     }
   ]

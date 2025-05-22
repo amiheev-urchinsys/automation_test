@@ -3,12 +3,12 @@
     {
       "outline_based": {
         "type": "SMART",
-        "name": "Hub 1",
+        "name": "Hub one",
         "description": ""
       },
       "value_based_key_extractor": {
         "type": "UNSTRUCTURED",
-        "name": "Hub 2",
+        "name": "Hub two",
         "description": "",
         "datasetDto": {
           "sourceDatasetType": "BASED_ON_EXISTING"
@@ -16,7 +16,7 @@
       },
       "value_based_label_extractor": {
         "type": "UNSTRUCTURED",
-        "name": "Hub 3",
+        "name": "Hub three",
         "description": "",
         "datasetDto": {
           "sourceDatasetType": "NEW"

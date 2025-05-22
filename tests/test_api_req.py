@@ -16,7 +16,7 @@ def test_api_authorization(playwright: Playwright):
 
     response = with_auth_api.log_in(playwright, payload)
     response_body = response.json()
-    print(response_body["accessToken"])
+
     assert response.status == 200
     assert jsonschema.validate(instance=response_body, schema=login_scheme) is None
 
@@ -29,15 +29,17 @@ def test_api_create_hub(playwright: Playwright):
     hubs_list = data_processing.get_list_from_file("api_hub_payloads.json", "hubs")
     payload_auth = data_processing.get_value_by_key(users_list, "support")
     payload_hub = data_processing.get_value_by_key(hubs_list, "outline_based")
+    schemes_list = data_processing.get_list_from_file("response_schemes.json", "schemes")
+    outline_hub_scheme = data_processing.get_value_by_key(schemes_list, "create_hub_outline")
 
     response_login = with_auth_api.log_in(playwright, payload_auth)
     response_body_auth = response_login.json()
-
     access_token = response_body_auth["accessToken"]
 
     response_hub = with_hubs_api.create_hub(playwright, payload_hub, access_token)
     response_body_hub = response_hub.json()
-    print(response_body_hub)
 
+    assert response_body_hub.status == 200
+    assert jsonschema.validate(instance=response_body_hub, schema=outline_hub_scheme) is None
 
 
